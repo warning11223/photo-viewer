@@ -1,11 +1,11 @@
 <template>
   <button
-    @click="toggleTheme"
+    @click="themeStore.toggleTheme"
     class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
-    :aria-label="`Switch to ${isDark ? 'light' : 'dark'} theme`"
+    :aria-label="`Switch to ${themeStore.isDark ? 'light' : 'dark'} theme`"
   >
     <svg
-      v-if="isDark"
+      v-if="themeStore.isDark"
       xmlns="http://www.w3.org/2000/svg"
       class="h-6 w-6 text-yellow-300"
       fill="none"
@@ -38,26 +38,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { useThemeStore } from '@/stores/theme'
 
-const isDark = ref(false)
-
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-  if (isDark.value) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
-  }
-}
-
-onMounted(() => {
-  const savedTheme = localStorage.getItem('theme')
-  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    isDark.value = true
-    document.documentElement.classList.add('dark')
-  }
-})
+const themeStore = useThemeStore()
 </script>

@@ -1,11 +1,6 @@
 <script setup>
 import Table from '@/components/Table.vue'
 import ThemeToggle from '@/components/ThemeToggle.vue'
-import { useThemeStore } from '@/stores/theme.js'
-
-const themeStore = useThemeStore()
-
-const toggleTheme = themeStore.toggleTheme
 </script>
 
 <template>
@@ -13,7 +8,7 @@ const toggleTheme = themeStore.toggleTheme
     <header class="sticky top-0 p-2 z-10">
       <div class="flex justify-between items-center">
         <h1 class="text-xl font-bold">Photo viewer</h1>
-        <ThemeToggle @click="toggleTheme" />
+        <ThemeToggle />
       </div>
     </header>
 
