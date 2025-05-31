@@ -15,10 +15,6 @@ const props = defineProps({
         props.class,
       )
     "
-    style="
-      --table-hover: rgba(0,0,0,0.13);
-      --table-dark-hover: rgba(252,252,252,0.25)
-    "
   >
     <slot />
   </tr>

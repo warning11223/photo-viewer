@@ -51,8 +51,9 @@ const {
 
   <div
     v-infinite-scroll="[tableStore.loadPhotos, { distance: 50, canLoadMore: tableStore.canLoadMore }]"
-    class="overflow-auto max-h-[55vh]"
+    class="overflow-auto max-h-[55vh] mt-2"
     style="margin-top: 10px"
+    id="table-scroll-top"
   >
     <Table>
       <TableHeader>
@@ -78,8 +79,12 @@ const {
             :sort-order="sortOrder"
             @sort="tableStore.toggleSort"
           />
-          <TableHead class="text-[var(--sidebar-accent)]">Ссылка</TableHead>
-          <TableHead class="text-[var(--sidebar-accent)] text-right">Миниатюра</TableHead>
+          <TableHead class="sticky top-0 bg-gray-600 dark:bg-gray-100 dark:text-gray-700 text-gray-100">
+            Ссылка
+          </TableHead>
+          <TableHead class="sticky top-0 text-right bg-gray-600 dark:bg-gray-100 dark:text-gray-700 text-gray-100">
+            Миниатюра
+          </TableHead>
         </TableRow>
       </TableHeader>
 
@@ -98,7 +103,7 @@ const {
             <TableCell class="min-w-[140px] h-[36px]">
               <div class="skeleton w-full h-4 rounded"></div>
             </TableCell>
-            <TableCell class="min-w-[150px] text-right h-[36px]">
+            <TableCell class="min-w-[140px] text-right h-[36px]">
               <div class="skeleton w-full h-4 rounded ml-auto"></div>
             </TableCell>
           </TableRow>
@@ -120,4 +125,3 @@ const {
     </Table>
   </div>
 </template>
-

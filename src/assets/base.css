@@ -101,7 +101,6 @@ body {
 
 .overflow-auto::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.16);
-  border-radius: 10px;
 }
 
 .dark .overflow-auto::-webkit-scrollbar-thumb {

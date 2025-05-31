@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
+import { scrollToTop } from '@/lib/utils.js'
 
 export const useTableStore = defineStore('table', () => {
   const photos = ref([])  // данные в таблице
@@ -90,6 +91,8 @@ export const useTableStore = defineStore('table', () => {
         sortOrder.value = 'asc'
       }
     }
+
+    scrollToTop()
 
     loadPhotos()
   }

@@ -29,8 +29,10 @@ const handleClick = () => {
 </script>
 
 <template>
-  <TableHead class="cursor-pointer select-none" @click="handleClick">
-    <div class="flex items-center gap-0.5 text-[var(--sidebar-accent)]">
+  <TableHead
+    class="cursor-pointer select-none sticky top-0 bg-gray-600 dark:bg-gray-100 dark:text-gray-700 text-gray-100"
+    @click="handleClick">
+    <div class="flex items-center gap-0.5 ">
       {{ displayText }}
       <div class="flex">
         <ArrowUp
@@ -44,10 +46,10 @@ const handleClick = () => {
       </div>
 
       <span v-if="sortField === fieldName && sortOrder === 'asc'">
-        <ArrowUp size="10" class="text-[var(--sidebar-accent)]" />
+        <ArrowUp size="10"/>
       </span>
       <span v-else-if="sortField === fieldName && sortOrder === 'desc'">
-        <ArrowDown size="10" class="text-[var(--sidebar-accent)]" />
+        <ArrowDown size="10" />
       </span>
     </div>
   </TableHead>
